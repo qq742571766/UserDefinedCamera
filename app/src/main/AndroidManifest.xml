@@ -1,7 +1,22 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.haolin.userdefinedcamera">
+    <!--如果是使用系统的相机拍照，可以不用声明此权限-->
+    <uses-permission android:name="android.permission.CAMERA" />
+    <!--只有带有摄像头的Android设备才能安装-->
+    <uses-feature android:name="android.hardware.camera" />
+    <!--不要求只有待有摄像头的Android设备才能安装-->
+    <!--<uses-feature-->
+    <!--android:name="android.hardware.camera"-->
+    <!--android:required="false" />-->
+    <!--存储权限声明-->
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <!--录制视频的权限声明-->
+    <uses-permission android:name="android.permission.RECORD_AUDIO" />
+    <!--位置权限-->
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
 
+    <uses-feature android:name="android.hardware.camera.autofocus" />
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -9,7 +24,10 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".MainActivity">
+        <activity
+            android:name=".MainActivity"
+            android:configChanges="orientation|keyboardHidden|screenSize"
+            android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -17,5 +35,4 @@
             </intent-filter>
         </activity>
     </application>
-
 </manifest>
